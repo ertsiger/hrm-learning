@@ -1,0 +1,31 @@
+{
+  "automaton_name": "mX",
+  "num_states": 5,
+  "observables": ["i", "t", "c", "s", "w", "z", "r", "y", "x", "h"],
+  "goal_examples": [
+    [["s"], ["h"], ["y"], ["h"], ["t"], ["x"], ["z"], ["t"]],
+    [["x"], ["z"], ["t"], ["s"], ["h"], ["y"], ["h"], ["t"]],
+    [["z"], ["x"], ["t"], ["s"], ["h"], ["y"], ["h"], ["t"]]
+  ],
+  "deadend_examples": [
+
+  ],
+  "inc_examples": [
+    [["x"], ["z"], ["t"]],
+    [["y"], ["h"]],
+    [["s"], ["t"]],
+    [["s"], ["h"], ["y"], ["h"], ["t"]],
+    [["y"], ["h"], ["x"], ["z"], ["t"]],
+    [["x"], ["z"], ["t"], ["y"], ["h"]],
+    [["x"], ["z"], ["t"], ["s"], ["t"]],
+    [["x"], ["z"], ["t"], ["s"], ["h"]],
+    [["s"], ["h"], ["x"], ["z"], ["t"]],
+    [["s"], ["t"], ["x"], ["z"], ["t"]]
+  ],
+  "max_disjunction_size": 1,
+  "learn_acyclic": true,
+  "use_compressed_traces": true,
+  "avoid_learning_only_negative": true,
+  "ignore_empty_observations": true,
+  "use_mutex_saturation": true
+}

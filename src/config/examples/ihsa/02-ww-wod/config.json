@@ -1,0 +1,183 @@
+{
+  "debug": true,
+  "use_gpu": false,
+  "use_seed": true,
+  "use_environment_seed": true,
+  "folder_name": "config/examples/ihsa/02-ww-wod",
+  "environment_name": "waterworld",
+  "environments": [
+    {
+      "name": "r-g",
+      "automaton_name": "m0",
+      "hierarchy_level": 1,
+      "dependencies": [],
+      "starting_seed": 25101993
+    },
+    {
+      "name": "b-c",
+      "automaton_name": "m1",
+      "hierarchy_level": 1,
+      "dependencies": [],
+      "starting_seed": 25101993
+    },
+    {
+      "name": "m-y",
+      "automaton_name": "m2",
+      "hierarchy_level": 1,
+      "dependencies": [],
+      "starting_seed": 25101993
+    },
+    {
+      "name": "(r-g)&(b-c)",
+      "automaton_name": "m3",
+      "hierarchy_level": 2,
+      "dependencies": [
+        "m0",
+        "m1"
+      ],
+      "starting_seed": 25101993
+    },
+    {
+      "name": "(b-c)&(m-y)",
+      "automaton_name": "m4",
+      "hierarchy_level": 2,
+      "dependencies": [
+        "m1",
+        "m2"
+      ],
+      "starting_seed": 25101993
+    },
+    {
+      "name": "(r-g)&(m-y)",
+      "automaton_name": "m5",
+      "hierarchy_level": 2,
+      "dependencies": [
+        "m0",
+        "m2"
+      ],
+      "starting_seed": 25101993
+    },
+    {
+      "name": "r-g-b",
+      "automaton_name": "m6",
+      "hierarchy_level": 2,
+      "dependencies": [
+        "m0"
+      ],
+      "starting_seed": 25101993
+    },
+    {
+      "name": "c-m-y",
+      "automaton_name": "m7",
+      "hierarchy_level": 2,
+      "dependencies": [
+        "m2"
+      ],
+      "starting_seed": 25101993
+    },
+    {
+      "name": "(r-g-b)&(c-m-y)",
+      "automaton_name": "m8",
+      "hierarchy_level": 3,
+      "dependencies": [
+        "m6",
+        "m7"
+      ],
+      "starting_seed": 25101993
+    }
+  ],
+  "num_environment_tasks": 10,
+  "training_enable": true,
+  "seed": 25101993,
+  "num_episodes": 150000,
+  "max_episode_length": 1000,
+  "state_format": "full_obs",
+  "curriculum_weight": 0.99,
+  "curriculum_temp": 2.0,
+  "curriculum_threshold": 0.75,
+  "curriculum_scoring_method": "andreas",
+  "curriculum_return_src": "greedy",
+  "greedy_evaluation_enable": true,
+  "greedy_evaluation_frequency": 100,
+  "greedy_evaluation_episodes": 1,
+  "compress_obs": true,
+  "ignore_empty_obs": false,
+  "random_restart": false,
+  "use_flat_hierarchy": false,
+  "max_x": 400,
+  "max_y": 400,
+  "ball_num_per_color": 2,
+  "ball_velocity": 30,
+  "use_empty": false,
+  "avoid_black": false,
+  "num_black_balls": 2,
+  "checkpoint_enable": false,
+  "checkpoint_frequency": 500,
+  "checkpoint_folder": "config/examples/ihsa/02-ww-wod",
+  "training_mode": "learn",
+  "learning_time_budget": 7200,
+  "ilasp_flags": {
+    "ilasp_version": "2",
+    "ilasp_simplify_contexts": true,
+    "ilasp_max_body_literals": 1,
+    "clingo_params": [],
+    "ilasp_find_optimal": false
+  },
+  "avoid_learning_only_negative": true,
+  "learn_acyclic_graph": true,
+  "symmetry_breaking_enable": true,
+  "max_disjunction_size": 1,
+  "hyp_restrict_observables": false,
+  "filter_restricted_observables": false,
+  "hyp_restrict_dependencies": false,
+  "use_mutex_saturation": true,
+  "root_rejecting_state_deepening": false,
+  "min_goal_examples": [
+    25,
+    150,
+    150
+  ],
+  "use_top_shortest_goal_examples": true,
+  "num_top_shortest_goal_examples": [
+    10,
+    10,
+    10
+  ],
+  "algorithm": "ihsa-hrl",
+  "learning_rate": 1e-05,
+  "meta_learning_rate": 0.001,
+  "discount_rate": 0.9,
+  "meta_discount_rate": 0.99,
+  "exploration_rate_subgoal_steps": 5000000,
+  "exploration_rate_automaton_steps": 10000,
+  "pseudoreward_condition_satisfied": 1.0,
+  "pseudoreward_deadend": 0.0,
+  "pseudoreward_after_step": 0.0,
+  "meta_pseudoreward_condition_satisfied": 1.0,
+  "meta_pseudoreward_deadend": 0.0,
+  "meta_pseudoreward_after_step": 0.0,
+  "formula_update_sel_num": 4,
+  "er_buffer_size": 500000,
+  "er_start_size": 100000,
+  "meta_er_buffer_size": 10000,
+  "meta_er_start_size": 1000,
+  "tgt_update_freq": 1500,
+  "meta_tgt_update_freq": 500,
+  "er_batch_size": 32,
+  "meta_er_batch_size": 32,
+  "dqn_linear_out_units": [
+    512,
+    512,
+    512
+  ],
+  "meta_dqn_num_linear_out_units": [
+    512,
+    512,
+    512
+  ],
+  "dqn_use_grad_clipping": false,
+  "dqn_optimizer": "rmsprop",
+  "option_exploration_include_formulas": true,
+  "option_exploration_include_automata": true,
+  "option_exploration_include_actions": true
+}

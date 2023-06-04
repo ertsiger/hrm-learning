@@ -1,0 +1,6 @@
+gym==0.15.7
+numpy==1.21.3
+python-sat==0.1.7.dev16
+stopit==1.1.2
+termcolor==1.1.0
+-e git+https://github.com/ertsiger/hrm-formalism-envs.git#egg=gym_hierarchical_subgoal_automata
