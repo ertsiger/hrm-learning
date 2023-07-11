@@ -367,7 +367,7 @@ class ExperimentsResultSummarizer:
                 f"automaton."
             )
 
-        for setting in ["open_plan", "open_plan_lava", "four_rooms_lava"]:
+        for setting in ["open_plan", "open_plan_lava", "four_rooms", "four_rooms_lava"]:
             print(f"\tCraftWorld - {setting}")
             _print_improvements("craftworld", setting, [
                 CraftWorldTasks.BOOK.value, CraftWorldTasks.MAP.value, CraftWorldTasks.MILK_BUCKET.value,
@@ -394,9 +394,6 @@ class ExperimentsResultSummarizer:
 
             # CraftWorld
             for setting in ["open_plan", "open_plan_lava", "four_rooms", "four_rooms_lava"]:
-                if setting == "four_rooms" and experiment_folder.startswith(common.FOLDER_EXPLORATION):
-                    continue
-
                 cls._write_tex_table(
                     read_json_file(os.path.join(
                         in_results_path, experiment_folder, "craftworld", setting, "stats.out"
